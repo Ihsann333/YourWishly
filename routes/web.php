@@ -62,3 +62,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     // Card moderation
     Route::get('/cards', [AdminController::class, 'cards'])->name('cards');
 });
+
+Route::get('/linkstorage', function () {
+    \Illuminate\Support\Facades\Artisan::call('storage:link');
+    return 'Storage linked successfully!';
+});
