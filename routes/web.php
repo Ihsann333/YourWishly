@@ -63,6 +63,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/cards', [AdminController::class, 'cards'])->name('cards');
 });
 
+Route::get('/seed', function () {
+    \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
+    return 'Database seeded successfully with templates and test accounts!';
+});
+
 Route::get('/linkstorage', function () {
     \Illuminate\Support\Facades\Artisan::call('storage:link');
     return 'Storage linked successfully!';

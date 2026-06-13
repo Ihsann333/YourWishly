@@ -17,19 +17,23 @@ class DatabaseSeeder extends Seeder
         $this->call(TemplateSeeder::class);
 
         // Seed Admin User
-        User::create([
-            'name' => 'Admin Wishly',
-            'email' => 'admin@wishly.com',
-            'password' => Hash::make('password'),
-            'role' => 'admin',
-        ]);
+        User::firstOrCreate(
+            ['email' => 'admin@wishly.com'],
+            [
+                'name' => 'Admin Wishly',
+                'password' => Hash::make('password'),
+                'role' => 'admin',
+            ]
+        );
 
         // Seed Regular User
-        User::create([
-            'name' => 'User Wishly',
-            'email' => 'user@wishly.com',
-            'password' => Hash::make('password'),
-            'role' => 'user',
-        ]);
+        User::firstOrCreate(
+            ['email' => 'user@wishly.com'],
+            [
+                'name' => 'User Wishly',
+                'password' => Hash::make('password'),
+                'role' => 'user',
+            ]
+        );
     }
 }
