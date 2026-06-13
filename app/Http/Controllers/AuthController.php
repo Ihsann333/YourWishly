@@ -68,7 +68,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('dashboard')->with('success', 'Pendaftaran berhasil! Selamat datang di Wishly.');
+        return redirect()->route('dashboard')->with('success', 'Pendaftaran berhasil! Selamat datang di YourWishly.');
     }
 
     public function logout(Request $request)
